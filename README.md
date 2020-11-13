@@ -1,2 +1,14 @@
 # Explaining-Complex-Energy-Systems
-description is not done yet
+
+## Introduction
+The code presented here is part of the "Explaining Complex Energy Systems: A Challenge" poster presented on the "Tackeling Climate Change with Machine Learning"-Workshop at the NIPS 2020.
+
+
+## LP Model
+The linear program implemented in **Model.py** has the following minimization goal:
+$min cost = c_{PV} * cap_{PV}$
+
+
+## Authors
+* [Jonas H&uuml;lsmann](https://www.eins.tu-darmstadt.de/eins/team/jonas-huelsmann)
+* [Florian Steinke](https://www.eins.tu-darmstadt.de/eins/team/florian-steinke)
