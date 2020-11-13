@@ -6,8 +6,9 @@ The code presented here is part of the "Explaining Complex Energy Systems: A Cha
 
 ## LP Model
 The linear program implemented in **Model.py** has the following minimization goal:
-<img src="https://render.githubusercontent.com/render/math?math=min cost = c_{PV} * cap_{PV}">
-$min cost = c_{PV} * cap_{PV}$
+
+<img src="https://render.githubusercontent.com/render/math?math=\min_{Cap,p} cost = c_{PV} * Cap_{PV} + c_{battery} * Cap_{battery} + \sum_t c_{buy}(t) * p_{buy}(t)">
+
 
 
 ## Authors
