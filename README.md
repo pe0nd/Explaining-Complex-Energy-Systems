@@ -15,7 +15,7 @@ The following restrictions are applied:
 
 <img src="https://render.githubusercontent.com/render/math?math=p_{battery}^{S}(t) = p_{battery}^{S}(t-1) %2B p_{battery}^{in}(t) \times \delta t - p_{battery}^{out}(t) \times \delta t , t \in 2,...,T">
 
-<img src="https://render.githubusercontent.com/render/math?math= 0 \leq p_{PV}(t) \leq Cap_{PV} \times availibilty\_PV(t) \times \delta t, \forall t">
+<img src="https://render.githubusercontent.com/render/math?math= 0 \leq p_{PV}(t) \leq Cap_{PV} \times availibilty_{PV}(t) \times \delta t, \forall t">
 
 <img src="https://render.githubusercontent.com/render/math?math= 0 \leq p_{battery}^{S}(t) \leq Cap_{battery}^S, \forall t">
 
