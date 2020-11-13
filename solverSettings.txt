@@ -1,0 +1,5 @@
+# enter solver settings here
+# all keywords other than 'solver' will be used as options
+solver = cplex
+emphasis_numerical = y
+simplex_tolerances_optimality = 1e-6
