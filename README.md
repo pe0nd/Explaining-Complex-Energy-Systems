@@ -23,7 +23,10 @@ The following restrictions are applied:
   
 <img src="https://render.githubusercontent.com/render/math?math=0 = p_{buy}(t), \forall t">
 
-
+## Time series
+* **Demand time series** - distribution of 8760 values that sum up to 1
+  * Data is for the residential_building_1 for the year 2016 from [Open Power System Data](https://data.open-power-system-data.org/household_data/2020-04-15)
+* **Photovoltaik availabilty** - values between 0 and 1 for each of the 8760 hours of a year, while 0 is no radiation and 1 is the maximum possible radiation
 
 
 ## Authors
