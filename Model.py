@@ -2,7 +2,8 @@
 
 def getSettings():
     """Return settingsDict with default settings for usage in an HouseModel class object"""
-    settingsDict = {"lifetime": 10,  # Years
+    settingsDict = {
+                    "lifetime": 10,  # Years
                     "cost_PV": 1000,  # €/kW
                     "cost_Battery": 300,  # €/kWh
                     "cost_buy": 0.25,  # €/kWh
@@ -61,20 +62,20 @@ class HouseModel:
 
         import csv
 
-        availability_pv = [0] * 8760  # create empty arrays
-        DemandVal = [0] * 8760
+        availability_pv = []  # create empty arrays
+        DemandVal = []
 
-        with open('MeanPVAvail.csv', 'r') as file:
-            next(file)
-            reader = csv.reader(file)
+        with open('TS_PVAvail.csv', 'r') as file:
+            # next(file)
+            reader = csv.reader(file, delimiter='\n')
             for row in reader:
-                availability_pv[int(row[1]) - 76] = float(row[0])
+                availability_pv.append(float(row[0]))
 
-        with open('DElec.csv', 'r') as file:
-            next(file)
-            reader = csv.reader(file)
+        with open('TS_Demand.csv', 'r') as file:
+            # next(file)
+            reader = csv.reader(file, delimiter='\n')
             for row in reader:
-                DemandVal[int(row[1]) - 76] = float(row[0])
+                DemandVal.append(float(row[0]))
 
         availability_pv = dict(enumerate(availability_pv))
         DemandVal = dict(enumerate(DemandVal))
@@ -154,9 +155,25 @@ class HouseModel:
                 expr=cost_PV * model.CapacityPV + cost_Battery * model.CapacityBattery == Fixing[4])
 
         # Change lines below to use other solver
-        solver = SolverFactory('cplex')
-        solver.options["emphasis_numerical"] = 'y'
-        solver.options["simplex_tolerances_optimality"] = 1e-6
+        solver_options = open("solverSettings.txt", "r").read().split("\n")
+        for i in solver_options:
+            if i.find('#') == 0 or i.__len__() == 0:
+                val = 0  # comment or empty line: do nothing
+            elif i.find('solver') == 0:
+                val = i.split('=')
+                val = val[1].strip()
+                # set solver
+                solver = SolverFactory(val)
+            else:
+                val = i.split('=')
+                opt = val[0].strip()
+                val = val[1].strip()
+                try:
+                    val2 = float(val)
+                except ValueError:
+                    val2 = val
+
+                solver.options[opt] = val2
 
         results = solver.solve(model, tee=True, keepfiles=True)
         results.write()
