@@ -26,8 +26,8 @@ The following restrictions are applied:
 ## Time series
 * **Demand time series** - distribution of 8760 values that sum up to 1
   * Data is for the residential_building_1 for the year 2016 from [Open Power System Data](https://data.open-power-system-data.org/household_data/2020-04-15)
-* **Photovoltaik availabilty** - values between 0 and 1 for each of the 8760 hours of a year, while 0 is no radiation and 1 is the maximum possible radiation
-
+* **Photovoltaik availabilty** - values between 0 and 1 for each of the 8760 hours of a year, while 1 is a 100% yield of the installed capacity and 0 is no energy production
+  * Data is for the city Darmstadt in Germany from [Renewables.ninja](https://www.renewables.ninja/)
 
 ## Authors
 * [Jonas H&uuml;lsmann](https://www.eins.tu-darmstadt.de/eins/team/jonas-huelsmann)
