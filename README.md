@@ -2,7 +2,9 @@
 
 ## Introduction
 The code presented here is part of the "Explaining Complex Energy Systems: A Challenge" poster presented on the "Tackeling Climate Change with Machine Learning"-Workshop at the NIPS 2020.
-
+The linear programm can be found in **Model.py**. 
+In **solverSettings.txt** the used solver and additional options can be defined. 
+An overview of ways to interact with the model is given in **ExampleRun.py**.
 
 ## LP Model
 The linear program implemented in **Model.py** has the following minimization goal:
