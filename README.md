@@ -1,8 +1,12 @@
 # Explaining-Complex-Energy-Systems
 
 ## Introduction
-The code presented here is part of the "Explaining Complex Energy Systems: A Challenge" poster presented on the "Tackeling Climate Change with Machine Learning"-Workshop at the NIPS 2020.
-The linear programm can be found in **Model.py**. 
+The code presented here is part of the "Explaining Complex Energy Systems: A Challenge" poster presented on the "Tackling Climate Change with Machine Learning"-Workshop at the NIPS 2020.
+We believe, that the field of explainable AI can help creating better explanations for energy system design tools.
+This could make such tool more accessible for non-experts, helping them to understand the impact of technologies on the climate change as well their costs.
+
+In this repository we provide a simple energy system model in the form of a linear program, written in Python Pyomo.
+The linear program can be found in **Model.py**. 
 In **solverSettings.txt** the used solver and additional options can be defined. 
 An overview of ways to interact with the model is given in **ExampleRun.py**.
 
@@ -28,7 +32,7 @@ The following restrictions are applied:
 ## Time series
 * **Demand time series** - distribution of 8760 values that sum up to 1
   * Data is for the residential_building_1 for the year 2016 from [Open Power System Data](https://data.open-power-system-data.org/household_data/2020-04-15)
-* **Photovoltaik availabilty** - values between 0 and 1 for each of the 8760 hours of a year, while 1 is a 100% yield of the installed capacity and 0 is no energy production
+* **Photovoltaic availability** - values between 0 and 1 for each of the 8760 hours of a year, while 1 is a 100% yield of the installed capacity and 0 is no energy production
   * Data is for the city Darmstadt in Germany from [Renewables.ninja](https://www.renewables.ninja/)
 
 ## Authors
