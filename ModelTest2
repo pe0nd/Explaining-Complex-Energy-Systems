@@ -1,0 +1,32 @@
+def run():
+    import Model2
+    # get settings for HouseModel
+    settings = Model2.getSettings()
+
+    # Create an instance of the HouseModel with given (or modified) settings
+    HousePVModel = Model2.HouseModel(settings)
+
+    # The function sample_model() solves an instance of the HouseModel class returning the solved model and the
+    # solvers termination status
+    # Note, that the solver in Model.py line 156 needs to be changed to run with other solvers
+    [Result, Status] = HousePVModel.sample_model()
+
+    import pyomo.environ as pyo
+    ResDict={}
+    ResDict["Cap_PV"] = pyo.value(Result.CapacityPV)
+    ResDict["Cap_Bat"] = pyo.value(Result.CapacityBattery)
+    ResDict["Demand"] = [pyo.value(Result.Demand[0]), pyo.value(Result.Demand[1]), pyo.value(Result.Demand[2])]
+    ResDict["P_Buy"] = [pyo.value(Result.EnergyBuy[0]), pyo.value(Result.EnergyBuy[1]), pyo.value(Result.EnergyBuy[2])]
+    ResDict["Bat_IN"] = [pyo.value(Result.EnergyBattery_IN[0]), pyo.value(Result.EnergyBattery_IN[1]),
+                         pyo.value(Result.EnergyBattery_IN[2])]
+    ResDict["Bat_OUT"] = [pyo.value(Result.EnergyBattery_OUT[0]), pyo.value(Result.EnergyBattery_OUT[1]),
+                          pyo.value(Result.EnergyBattery_OUT[2])]
+    ResDict["P_Bat"] = [pyo.value(Result.EnergyBattery[0]), pyo.value(Result.EnergyBattery[1]),
+                        pyo.value(Result.EnergyBattery[2])]
+    ResDict["P_PV"] = [pyo.value(Result.EnergyPV[0]), pyo.value(Result.EnergyPV[1]), pyo.value(Result.EnergyPV[2])]
+
+    print(ResDict)
+
+
+if __name__ == '__main__':
+    run()
