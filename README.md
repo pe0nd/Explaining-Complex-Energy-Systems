@@ -27,7 +27,7 @@ The following restrictions are applied:
 
 <img src="https://render.githubusercontent.com/render/math?math=p_{battery}^{S}(0) = p_{battery}^{S}(T)">
   
-<img src="https://render.githubusercontent.com/render/math?math=0 = p_{buy}(t), \forall t">
+<img src="https://render.githubusercontent.com/render/math?math=0 \leq p_{buy}(t), \forall t">
 
 ## Time series
 * **Demand time series** - distribution of 8760 values that sum up to 1
